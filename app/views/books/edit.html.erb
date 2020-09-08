@@ -1,7 +1,17 @@
-<h1>一覧</h1>
- <% @books.each do |book| %>
-  <p>タイトル</p>
-  <span>
-  <%= link_to book.title, book_path(book.id) %>
-  </span>
+<h1>Editing Book</h1>
+<%= form_for(@book, url: "/books/#{@book.id}") do |f| %>
+  <div class="field">
+  <%= f.label :title%>  <%= f.text_field :title %>
+  </div>
+  <div class="field">
+  <%= f.label :body%>   <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+  <%= f.submit 'Update Book' %>
+  </div>
+  <div>
+  <%= link_to "Show", todolist_path(@book.id) %>
+  |
+  <%= link_to "Back", 'javascript:history.back()'%>
+  </div>
 <% end %>
