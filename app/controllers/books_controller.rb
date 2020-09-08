@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-
+    flash[:notice] = "successfully"
     
   end
 
@@ -24,6 +24,12 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.update(book_params)
     redirect_to book_path(book.id)
+  end
+
+  def destroy
+    book = Book.find(params[:id]) #データ1件取得
+    book.destroy #データ削除
+    redirect_to books_path #一覧画面に戻る
   end
 
 
