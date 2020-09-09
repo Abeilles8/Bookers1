@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   # topページ
   root :to => 'books#top'
-  get 'books/index' => 'books#index'
 
   # 投稿機能
   post 'books' => 'books#create'
