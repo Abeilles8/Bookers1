@@ -3,15 +3,15 @@ Rails.application.routes.draw do
 
   # topページ
   root :to => 'books#top'
-  get 'books/index' => 'books#index'
 
   # 投稿機能
   post 'books' => 'books#create'
   get 'books' => 'books#index'
-  # 投稿→詳細
+
+  # 投稿→詳細ページ
   get "books/:id" => 'books#show', as: 'book'
 
-  # edit,
+  # edit,show,update,destroy
   get 'books/:id/edit' => 'books#edit', as: 'edit_book'
   patch 'books/:id/show' => 'books#show', as: 'show_book'
   patch 'books/:id' => 'books#update', as: 'update_book'
